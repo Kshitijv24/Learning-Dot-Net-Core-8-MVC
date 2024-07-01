@@ -18,5 +18,10 @@ namespace FirstProject.Controllers
             List<CategoryModel> objCategoryList = _db.Category.ToList();
             return View(objCategoryList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
