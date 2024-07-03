@@ -23,5 +23,13 @@ namespace FirstProject.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Create(CategoryModel obj)
+        {
+            _db.Category.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
