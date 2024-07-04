@@ -27,6 +27,11 @@ namespace FirstProject.Controllers
         [HttpPost]
         public IActionResult Create(CategoryModel obj)
         {
+            if(obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("name", "Category Name can not be same as the Display Order");
+            }
+
             if (ModelState.IsValid)
             {
                 _db.Category.Add(obj);
